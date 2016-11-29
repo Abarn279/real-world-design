@@ -1,4 +1,6 @@
-﻿using CompositePattern.Composites;
+﻿using System;
+using CompositePattern.Composites;
+using CompositePattern.Visitors;
 
 namespace CompositePattern
 {
@@ -38,6 +40,19 @@ namespace CompositePattern
 
             // Add the iPad designer as a member of the iphone group
             iPhoneGroup.AddChild(iPadDesigner);
+
+            CompanySearch cs = new CompanySearch
+            {
+                Query = "a"
+            };
+
+            appleCompany.AcceptVisitor(cs);
+
+            foreach (var x in cs.GetResults())
+            {
+                Console.WriteLine(x.Name);
+            }
+            return;
         }
     }
 }

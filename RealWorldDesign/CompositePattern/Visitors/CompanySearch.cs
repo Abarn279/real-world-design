@@ -1,22 +1,33 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using CompositePattern.Composites;
 
 namespace CompositePattern.Visitors
 {
     class CompanySearch : AbstractCompanyVisitor
     {
-        private string Query { get; set; }
+        public string Query { get; set; }
 
-        private IList<AbstractCompanyEntity> Results { get; set; }
+        private readonly IList<AbstractCompanyEntity> _results  = new List<AbstractCompanyEntity>();
 
         public override void VisitEmployee(Employee employee)
         {
-            throw new System.NotImplementedException();
+            if (employee.Name.Contains(Query)) _results.Add(employee);
         }
 
         public override void VisitGroup(Group group)
+        { 
+            if (group.Name.Contains(Query)) _results.Add(group);
+
+            foreach (var child in group.GetChildren())
+            {
+                child.AcceptVisitor(this);
+            }
+        }
+
+        public IList<AbstractCompanyEntity> GetResults()
         {
-            throw new System.NotImplementedException();
+            return _results;
         }
     }
 }
