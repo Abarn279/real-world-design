@@ -41,6 +41,7 @@ namespace CompositePattern
             // Add the iPad designer as a member of the iphone group
             iPhoneGroup.AddChild(iPadDesigner);
 
+            // Search whole company for any group or employee with an "A"
             CompanySearch cs = new CompanySearch
             {
                 Query = "a"
