@@ -14,7 +14,7 @@ namespace Builders
             _company = new Group(name);
         }
 
-        public void BuildEmployee(string name, double salary, string title, string parentGroup)
+        public ICompanyBuilder BuildEmployee(string name, double salary, string title, string parentGroup)
         {
             var companySearch = new CompanyGroupSearch()
             {
@@ -34,9 +34,11 @@ namespace Builders
 
             else
                 results[0].AddChild(new Employee(name, salary, title));
+
+            return this;
         }
 
-        public void BuildGroup(string name, string parentGroup)
+        public ICompanyBuilder BuildGroup(string name, string parentGroup)
         {
             var companySearch = new CompanyGroupSearch()
             {
@@ -56,6 +58,13 @@ namespace Builders
 
             else
                 results[0].AddChild(new Group(name));
+
+            return this;
+        }
+
+        public AbstractCompanyEntity GetResult()
+        {
+            return _company;
         }
     }
 }

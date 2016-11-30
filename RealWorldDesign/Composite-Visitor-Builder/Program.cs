@@ -1,56 +1,78 @@
-﻿using System;
-using Composites;
+﻿using Builders;
 using Visitors;
 
 class Program
 {
     static void Main(string[] args)
     {
+        // Construct company. Company builder allows you to search for the parent of the new
+        // entity and will place it automatically.
+        var appleCompany = new CompanyBuilder("Apple")
+            .BuildEmployee("Tim Cook", 10200000, "CEO", "appl")
+            .BuildGroup("Vice Presidents", "ppl")
+            .BuildEmployee("Craig Federighi", 1000000, "Vice President of Engineering", "Vice")
+            .BuildEmployee("Jonathan Ive", 1000000, "Vice President of Design", " Presidents")
+            .BuildEmployee("Phillip Schiller", 1000000, "Vice President of Marketing", "Vice Pres")
+            .BuildGroup("iPad", "Vice Presidents")
+            .BuildGroup("iWatch", "Vice Presidents")
+            .BuildGroup("iPhone", "Vice Presidents")
+            .BuildEmployee("Phillip", 150000, "iPad Designer", "ipad")
+            .BuildEmployee("Todd Jones", 200000, "iWatch Designer", "IWATCH")
+            .GetResult();
+
         // Create Company and leadership
-        Group appleCompany = new Group("Apple");
-        Employee ceo = new Employee("Tim Cook", 10200000, "CEO");
-        Group vicePresidents = new Group("Vice Presidents");
-        Employee vpEng = new Employee("Craig Federighi", 1000000, "Vice President Of Engineering");
-        Employee vpDes = new Employee("Jonathan Ive", 1000000, "Vice President of Design");
-        Employee vpMark = new Employee("Phillip Schiller", 1000000, "Vice President of Marketing");
+        //Group appleCompany = new Group("Apple");
+        //Employee ceo = new Employee("Tim Cook", 10200000, "CEO");
+        //Group vicePresidents = new Group("Vice Presidents");
+        //Employee vpEng = new Employee("Craig Federighi", 1000000, "Vice President Of Engineering");
+        //Employee vpDes = new Employee("Jonathan Ive", 1000000, "Vice President of Design");
+        //Employee vpMark = new Employee("Phillip Schiller", 1000000, "Vice President of Marketing");
 
         // Add Leadership as Child of the company
-        appleCompany.AddChild(ceo);
-        appleCompany.AddChild(vicePresidents);
+        //appleCompany.AddChild(ceo);
+        //appleCompany.AddChild(vicePresidents);
 
         // Add the specific VPs as children of the VP group
-        vicePresidents.AddChild(vpEng);
-        vicePresidents.AddChild(vpDes);
-        vicePresidents.AddChild(vpMark);
+        //vicePresidents.AddChild(vpEng);
+        //vicePresidents.AddChild(vpDes);
+        //vicePresidents.AddChild(vpMark);
 
         // Create specific product groups
-        Group iPadGroup = new Group("iPad");
-        Group iWatchGroup = new Group("Smartwatch");
-        Group iPhoneGroup = new Group("iPhone");
+        //Group iPadGroup = new Group("iPad");
+        //Group iWatchGroup = new Group("iWatch");
+        //Group iPhoneGroup = new Group("iPhone");
 
         // Create a designer employee for one of the groups
-        Employee iPadDesigner = new Employee("Phillip", 150000, "iPad Designer");
+        //Employee iPadDesigner = new Employee("Phillip", 150000, "iPad Designer");
+        //Employee iWatchDesigner = new Employee("Todd Jones", 200000, "iWatch Designer");
 
         // Add the product groups as a subsidiery of the VPs
-        vicePresidents.AddChild(iPadGroup);
-        vicePresidents.AddChild(iWatchGroup);
-        vicePresidents.AddChild(iPhoneGroup);
+        //vicePresidents.AddChild(iPadGroup);
+        //vicePresidents.AddChild(iWatchGroup);
+        //vicePresidents.AddChild(iPhoneGroup);
 
         // Add the iPad designer as a member of the iphone group
-        iPhoneGroup.AddChild(iPadDesigner);
+        //iPhoneGroup.AddChild(iPadDesigner);
+        //iWatchGroup.AddChild(iWatchDesigner);
 
+        // Test Company Search
         // Search whole company for any group or employee with an "A"
-        CompanySearch cs = new CompanySearch
-        {
-            Query = "a"
-        };
+        //CompanySearch cs = new CompanySearch
+        //{
+        //    Query = "a"
+        //};
 
-        appleCompany.AcceptVisitor(cs);
+        //appleCompany.AcceptVisitor(cs);
 
-        foreach (var x in cs.GetResults())
-        {
-            Console.WriteLine(x.Name);
-        }
+        //foreach (var x in cs.GetResults())
+        //{
+        //    Console.WriteLine(x.Name);
+        //}
+
+        // Test Printer
+        CompanyPrinter cp = new CompanyPrinter();
+        appleCompany.AcceptVisitor(cp);
+
         return;
     }
 }
