@@ -1,6 +1,6 @@
-﻿using CompositePattern.Visitors;
+﻿using Visitors;
 
-namespace CompositePattern.Composites
+namespace Composites
 {
     class Group : AbstractCompanyEntity
     {

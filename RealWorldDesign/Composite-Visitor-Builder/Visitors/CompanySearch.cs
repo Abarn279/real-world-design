@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using CompositePattern.Composites;
+﻿using System.Collections.Generic;
+using Composites;
 
-namespace CompositePattern.Visitors
+namespace Visitors
 {
     class CompanySearch : AbstractCompanyVisitor
     {

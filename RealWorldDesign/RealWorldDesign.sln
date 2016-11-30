@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositePattern", "CompositePattern\CompositePattern.csproj", "{4A941058-29AD-4403-A416-14F0D1BD278A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Composite-Visitor-Builder", "Composite-Visitor-Builder\Composite-Visitor-Builder.csproj", "{4A941058-29AD-4403-A416-14F0D1BD278A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

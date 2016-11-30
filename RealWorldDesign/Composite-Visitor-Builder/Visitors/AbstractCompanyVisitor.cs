@@ -1,6 +1,6 @@
-﻿using CompositePattern.Composites;
+﻿using Composites;
 
-namespace CompositePattern.Visitors
+namespace Visitors
 {
     abstract class AbstractCompanyVisitor
     {

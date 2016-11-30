@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CompositePattern.Visitors;
+using Visitors;
 
-namespace CompositePattern.Composites
+namespace Composites
 {
     abstract class AbstractCompanyEntity
     {
