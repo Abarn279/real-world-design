@@ -11,12 +11,12 @@ namespace Visitors
 
         public override void VisitEmployee(Employee employee)
         {
-            if (employee.Name.Contains(Query)) _results.Add(employee);
+            if (employee.Name.ToLower().Contains(Query.ToLower())) _results.Add(employee);
         }
 
         public override void VisitGroup(Group group)
         { 
-            if (group.Name.Contains(Query)) _results.Add(group);
+            if (group.Name.ToLower().Contains(Query.ToLower())) _results.Add(group);
 
             foreach (var child in group.GetChildren())
             {

@@ -21,6 +21,8 @@ namespace Composites
             return _children.Keys.Select(x => _children[x]);
         }
 
+        public virtual void AddChild(AbstractCompanyEntity ent) { }
+
         public abstract void AcceptVisitor(AbstractCompanyVisitor visitor);
     }
 }

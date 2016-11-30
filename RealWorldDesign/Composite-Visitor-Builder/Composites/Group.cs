@@ -6,7 +6,7 @@ namespace Composites
     {
         public Group(string name) : base(name) { }
 
-        public void AddChild(AbstractCompanyEntity ent)
+        public override void AddChild(AbstractCompanyEntity ent)
         {
             _children[ent.Name] = ent;
         }
