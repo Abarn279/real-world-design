@@ -25,6 +25,11 @@ namespace Composites
             Title = title;
         }
 
+        public override void AddChild(AbstractCompanyEntity ent)
+        {
+            throw new Exception("Employees cannot have subordinates!");
+        }
+
         public override void AcceptVisitor(AbstractCompanyVisitor visitor)
         {
             visitor.VisitEmployee(this);
