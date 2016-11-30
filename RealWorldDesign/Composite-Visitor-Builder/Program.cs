@@ -3,7 +3,7 @@ using Visitors;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         // Construct company. Company builder allows you to search for the parent of the new
         // entity and will place it automatically.
