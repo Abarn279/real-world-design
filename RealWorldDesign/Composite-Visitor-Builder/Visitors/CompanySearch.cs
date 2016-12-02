@@ -1,4 +1,6 @@
-﻿using CompositeVisitorBuilder.Composites;
+﻿using System.Collections;
+using System.Collections.Generic;
+using CompositeVisitorBuilder.Composites;
 
 namespace CompositeVisitorBuilder.Visitors
 {
@@ -12,11 +14,11 @@ namespace CompositeVisitorBuilder.Visitors
             _company = company;
         }
 
-        public void Search(string query)
+        public IList<AbstractCompanyEntity> Search(string query)
         {
             _visitor.Query = query;
             _company.AcceptVisitor(_visitor);
-            var x = _visitor.GetResults();
+            return _visitor.GetResults();
         }
     }
 }
