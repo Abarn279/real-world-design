@@ -9,17 +9,17 @@ namespace CompositeVisitorBuilder
     {
         static void Main()
         {
-            // TODO: Decorators: Manual vs interception
-
             // Manual Company
             var apple1 = GetCompanyManually();
             ;
             TestVisitors(apple1);
 
+            // From Builder
             var apple2 = GetCompanyFromBuilder();
             ;
             TestVisitors(apple2);
 
+            // Decorator
             var apple3 = GetCompanyFromDecoratedBuilder();
             ;
             TestVisitors(apple3);

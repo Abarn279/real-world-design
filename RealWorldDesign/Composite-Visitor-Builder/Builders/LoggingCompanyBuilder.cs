@@ -15,13 +15,15 @@ namespace CompositeVisitorBuilder.Builders
         public ICompanyBuilder BuildEmployee(string name, double salary, string title, string parentGroup)
         {
             Console.WriteLine("Building employee " + name + " with a parent group search term of " + parentGroup);
-            return new LoggingCompanyBuilder(_builder.BuildEmployee(name, salary, title, parentGroup));
+            _builder.BuildEmployee(name, salary, title, parentGroup);
+            return this;
         }
 
         public ICompanyBuilder BuildGroup(string name, string parentGroup)
         {
             Console.WriteLine("Building group " + name + " with a parent group search term of " + parentGroup);
-            return new LoggingCompanyBuilder(_builder.BuildGroup(name, parentGroup)); 
+            _builder.BuildGroup(name, parentGroup);
+            return this;
         }
 
         public AbstractCompanyEntity GetResult()
