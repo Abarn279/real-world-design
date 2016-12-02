@@ -20,6 +20,10 @@ namespace CompositeVisitorBuilder
             ;
             TestVisitors(apple2);
 
+            var apple3 = GetCompanyFromDecoratedBuilder();
+            ;
+            TestVisitors(apple3);
+
             return;
         }
 
@@ -28,7 +32,7 @@ namespace CompositeVisitorBuilder
             // Test Company Search
             // Search whole company for any group or employee with an "a" in its name
             CompanySearch client = new CompanySearch(company);
-            var results = client.Search("");
+            var results = client.Search("a");
 
             foreach (var x in results)
             {
@@ -89,6 +93,25 @@ namespace CompositeVisitorBuilder
             // Construct company. Company builder allows you to search for the parent of the new
             // entity and will place it automatically.
             var appleCompany = new CompanyBuilder("Apple")
+                .BuildEmployee("Tim Cook", 10200000, "CEO", "appl")
+                .BuildGroup("Vice Presidents", "ppl")
+                .BuildEmployee("Craig Federighi", 1000000, "Vice President of Engineering", "Vice")
+                .BuildEmployee("Jonathan Ive", 1000000, "Vice President of Design", " Presidents")
+                .BuildEmployee("Phillip Schiller", 1000000, "Vice President of Marketing", "Vice Pres")
+                .BuildGroup("iPad", "Vice Presidents")
+                .BuildGroup("iWatch", "Vice Presidents")
+                .BuildGroup("iPhone", "Vice Presidents")
+                .BuildEmployee("Phillip", 150000, "iPad Designer", "ipad")
+                .BuildEmployee("Todd Jones", 200000, "iWatch Designer", "IWATCH")
+                .GetResult();
+
+            return appleCompany;
+        }
+
+        private static AbstractCompanyEntity GetCompanyFromDecoratedBuilder()
+        {
+            var builder = new CompanyBuilder("Apple");
+            var appleCompany = new LoggingCompanyBuilder(builder)
                 .BuildEmployee("Tim Cook", 10200000, "CEO", "appl")
                 .BuildGroup("Vice Presidents", "ppl")
                 .BuildEmployee("Craig Federighi", 1000000, "Vice President of Engineering", "Vice")

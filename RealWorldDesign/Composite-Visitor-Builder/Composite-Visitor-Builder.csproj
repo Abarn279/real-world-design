@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Builders\CompanyBuilder.cs" />
     <Compile Include="Builders\ICompanyBuilder.cs" />
+    <Compile Include="Builders\LoggingCompanyBuilder.cs" />
     <Compile Include="Composites\AbstractCompanyEntity.cs" />
     <Compile Include="Visitors\CompanyGroupSearchVisitor.cs" />
     <Compile Include="Visitors\CompanyPrinter.cs" />
