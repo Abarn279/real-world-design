@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using CompositeVisitorBuilder.Visitors;
 
 namespace CompositeVisitorBuilder.Composites
@@ -13,7 +14,12 @@ namespace CompositeVisitorBuilder.Composites
                 .Average(x => x.Utilization)
             : -1;
 
-        public override void AddChild(AbstractCompanyEntity ent)
+        public IEnumerable<AbstractCompanyEntity> GetChildren()
+        {
+            return _children.Keys.Select(x => _children[x]);
+        }
+
+        public void AddChild(AbstractCompanyEntity ent)
         {
             _children[ent.Name] = ent;
         }

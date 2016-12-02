@@ -1,32 +1,22 @@
-﻿using System.Collections.Generic;
-using CompositeVisitorBuilder.Composites;
+﻿using CompositeVisitorBuilder.Composites;
 
 namespace CompositeVisitorBuilder.Visitors
 {
-    class CompanySearch : AbstractCompanyVisitor
+    class CompanySearch
     {
-        public string Query { get; set; }
+        private readonly Group _company;
+        private readonly CompanySearchVisitor _visitor = new CompanySearchVisitor();
 
-        private readonly IList<AbstractCompanyEntity> _results  = new List<AbstractCompanyEntity>();
-
-        public override void VisitEmployee(Employee employee)
+        public CompanySearch(Group company)
         {
-            if (employee.Name.ToLower().Contains(Query.ToLower())) _results.Add(employee);
+            _company = company;
         }
 
-        public override void VisitGroup(Group group)
-        { 
-            if (group.Name.ToLower().Contains(Query.ToLower())) _results.Add(group);
-
-            foreach (var child in group.GetChildren())
-            {
-                child.AcceptVisitor(this);
-            }
-        }
-
-        public IList<AbstractCompanyEntity> GetResults()
+        public void Search(string query)
         {
-            return _results;
+            _visitor.Query = query;
+            _company.AcceptVisitor(_visitor);
+            var x = _visitor.GetResults();
         }
     }
 }

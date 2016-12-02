@@ -18,13 +18,6 @@ namespace CompositeVisitorBuilder.Composites
             Name = name;
         }
 
-        public IEnumerable<AbstractCompanyEntity> GetChildren()
-        {
-            return _children.Keys.Select(x => _children[x]);
-        }
-
-        public abstract void AddChild(AbstractCompanyEntity ent);
-
         public abstract void AcceptVisitor(AbstractCompanyVisitor visitor);
     }
 }

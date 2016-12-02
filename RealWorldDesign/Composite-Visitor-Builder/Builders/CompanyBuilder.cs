@@ -16,7 +16,7 @@ namespace CompositeVisitorBuilder.Builders
 
         public ICompanyBuilder BuildEmployee(string name, double salary, string title, string parentGroup)
         {
-            var companySearch = new CompanyGroupSearch()
+            var companySearch = new CompanyGroupSearchVisitor
             {
                 Query = parentGroup
             };
@@ -40,7 +40,7 @@ namespace CompositeVisitorBuilder.Builders
 
         public ICompanyBuilder BuildGroup(string name, string parentGroup)
         {
-            var companySearch = new CompanyGroupSearch()
+            var companySearch = new CompanyGroupSearchVisitor()
             {
                 Query = parentGroup
             };

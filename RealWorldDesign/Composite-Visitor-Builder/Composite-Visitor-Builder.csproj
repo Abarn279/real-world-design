@@ -46,9 +46,10 @@
     <Compile Include="Builders\CompanyBuilder.cs" />
     <Compile Include="Builders\ICompanyBuilder.cs" />
     <Compile Include="Composites\AbstractCompanyEntity.cs" />
-    <Compile Include="Visitors\CompanyGroupSearch.cs" />
-    <Compile Include="Visitors\CompanyPrinter.cs" />
+    <Compile Include="Visitors\CompanyGroupSearchVisitor.cs" />
+    <Compile Include="Visitors\CompanyPrinterVisitor.cs" />
     <Compile Include="Visitors\CompanySearch.cs" />
+    <Compile Include="Visitors\CompanySearchVisitor.cs" />
     <Compile Include="Visitors\AbstractCompanyVisitor.cs" />
     <Compile Include="Composites\Employee.cs" />
     <Compile Include="Composites\Group.cs" />

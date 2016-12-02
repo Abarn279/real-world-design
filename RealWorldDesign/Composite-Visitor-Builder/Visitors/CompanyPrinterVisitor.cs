@@ -3,7 +3,7 @@ using CompositeVisitorBuilder.Composites;
 
 namespace CompositeVisitorBuilder.Visitors
 {
-    class CompanyPrinter : AbstractCompanyVisitor
+    class CompanyPrinterVisitor : AbstractCompanyVisitor
     {
         private string _indentation = "";
 
