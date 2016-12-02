@@ -1,6 +1,6 @@
-﻿using Composites;
+﻿using CompositeVisitorBuilder.Composites;
 
-namespace Visitors
+namespace CompositeVisitorBuilder.Visitors
 {
     abstract class AbstractCompanyVisitor
     {

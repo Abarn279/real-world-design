@@ -1,7 +1,7 @@
 ﻿using System;
-using Composites;
+using CompositeVisitorBuilder.Composites;
 
-namespace Visitors
+namespace CompositeVisitorBuilder.Visitors
 {
     class CompanyPrinter : AbstractCompanyVisitor
     {

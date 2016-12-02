@@ -7,8 +7,8 @@
     <ProjectGuid>{4A941058-29AD-4403-A416-14F0D1BD278A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Composite-Visitor-Builder</RootNamespace>
-    <AssemblyName>Composite-Visitor-Builder</AssemblyName>
+    <RootNamespace>CompositeVisitorBuilder</RootNamespace>
+    <AssemblyName>CompositeVisitorBuilder</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

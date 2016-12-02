@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using Composites;
-using Visitors;
+using CompositeVisitorBuilder.Composites;
+using CompositeVisitorBuilder.Visitors;
 
-namespace Builders
+namespace CompositeVisitorBuilder.Builders
 {
     class CompanyBuilder : ICompanyBuilder
     {

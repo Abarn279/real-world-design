@@ -1,7 +1,7 @@
 ﻿using System;
-using Visitors;
+using CompositeVisitorBuilder.Visitors;
 
-namespace Composites
+namespace CompositeVisitorBuilder.Composites
 {
     class Employee: AbstractCompanyEntity
     {
@@ -16,6 +16,8 @@ namespace Composites
                 _salary = value;
             }
         }
+
+        public override double Utilization => Math.Round(new Random().NextDouble(), 2);
 
         public string Title { get; private set; }
 

@@ -1,6 +1,6 @@
-﻿using Composites;
+﻿using CompositeVisitorBuilder.Composites;
 
-namespace Builders
+namespace CompositeVisitorBuilder.Builders
 {
     interface ICompanyBuilder
     {

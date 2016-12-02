@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Visitors;
+using CompositeVisitorBuilder.Visitors;
 
-namespace Composites
+namespace CompositeVisitorBuilder.Composites
 {
     abstract class AbstractCompanyEntity
     {
@@ -10,6 +10,8 @@ namespace Composites
         protected readonly IDictionary<string, AbstractCompanyEntity> _children = new Dictionary<string, AbstractCompanyEntity>();
 
         public string Name { get; private set; }
+
+        public abstract double Utilization { get; }
 
         protected AbstractCompanyEntity(string name)
         {
