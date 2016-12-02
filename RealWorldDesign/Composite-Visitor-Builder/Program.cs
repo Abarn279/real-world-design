@@ -32,15 +32,17 @@ namespace CompositeVisitorBuilder
             // Test Company Search
             // Search whole company for any group or employee with an "a" in its name
             CompanySearch client = new CompanySearch(company);
-            var results = client.Search("a");
-
+            Console.WriteLine("Enter Search Query: ");
+            var results = client.Search(Console.ReadLine());
+            Console.WriteLine("\nResults:");
             foreach (var x in results)
             {
                 Console.WriteLine(x.Name);
             }
+            Console.WriteLine("\nPress enter to continue.\n");
+            Console.ReadKey();
 
-            Console.WriteLine();
-
+            Console.WriteLine("Full Company Structure:\n");
             // Test Printer
             CompanyPrinter.Print(company);
             
