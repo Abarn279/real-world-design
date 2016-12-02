@@ -27,14 +27,10 @@ namespace CompositeVisitorBuilder
         {
             // Test Company Search
             // Search whole company for any group or employee with an "a" in its name
-            CompanySearchVisitor cs = new CompanySearchVisitor
-            {
-                Query = "a"
-            };
+            CompanySearch client = new CompanySearch(company);
+            var results = client.Search("");
 
-            company.AcceptVisitor(cs);
-
-            foreach (var x in cs.GetResults())
+            foreach (var x in results)
             {
                 Console.WriteLine(x.Name);
             }
@@ -42,8 +38,7 @@ namespace CompositeVisitorBuilder
             Console.WriteLine();
 
             // Test Printer
-            CompanyPrinterVisitor cp = new CompanyPrinterVisitor();
-            company.AcceptVisitor(cp);
+            CompanyPrinter.Print(company);
             
             Console.WriteLine();
         }
