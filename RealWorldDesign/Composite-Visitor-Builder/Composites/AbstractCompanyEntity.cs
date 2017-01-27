@@ -6,9 +6,6 @@ namespace CompositeVisitorBuilder.Composites
 {
     abstract class AbstractCompanyEntity
     {
-        // Map of entity name to full entity
-        protected readonly IDictionary<string, AbstractCompanyEntity> _children = new Dictionary<string, AbstractCompanyEntity>();
-
         public string Name { get; private set; }
 
         public abstract double Utilization { get; }

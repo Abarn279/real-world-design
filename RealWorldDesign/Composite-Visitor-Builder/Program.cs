@@ -14,15 +14,15 @@ namespace CompositeVisitorBuilder
             ;
             TestVisitors(apple1);
 
-            // From Builder
-            var apple2 = GetCompanyFromBuilder();
-            ;
-            TestVisitors(apple2);
+            //// From Builder
+            //var apple2 = GetCompanyFromBuilder();
+            //;
+            //TestVisitors(apple2);
 
-            // Decorator
-            var apple3 = GetCompanyFromDecoratedBuilder();
-            ;
-            TestVisitors(apple3);
+            //// Decorator
+            //var apple3 = GetCompanyFromDecoratedBuilder();
+            //;
+            //TestVisitors(apple3);
 
             return;
         }
@@ -31,16 +31,16 @@ namespace CompositeVisitorBuilder
         {
             // Test Company Search
             // Search whole company for any group or employee with an "a" in its name
-            CompanySearch client = new CompanySearch(company);
-            Console.WriteLine("Enter Search Query: ");
-            var results = client.Search(Console.ReadLine());
-            Console.WriteLine("\nResults:");
-            foreach (var x in results)
-            {
-                Console.WriteLine(x.Name);
-            }
-            Console.WriteLine("\nPress enter to continue.\n");
-            Console.ReadKey();
+            //CompanySearch client = new CompanySearch(company);
+            //Console.WriteLine("Enter Search Query: ");
+            //var results = client.Search(Console.ReadLine());
+            //Console.WriteLine("\nResults:");
+            //foreach (var x in results)
+            //{
+            //    Console.WriteLine(x.Name);
+            //}
+            //Console.WriteLine("\nPress enter to continue.\n");
+            //Console.ReadKey();
 
             Console.WriteLine("Full Company Structure:\n");
             // Test Printer

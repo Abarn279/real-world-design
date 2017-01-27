@@ -6,6 +6,9 @@ namespace CompositeVisitorBuilder.Composites
 {
     class Group : AbstractCompanyEntity
     {
+        // Map of entity name to full entity
+        protected readonly IDictionary<string, AbstractCompanyEntity> _children = new Dictionary<string, AbstractCompanyEntity>();
+
         public Group(string name) : base(name) { }
 
         public override double Utilization => _children.Any()
