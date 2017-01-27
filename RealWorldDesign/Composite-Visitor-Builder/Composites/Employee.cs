@@ -17,7 +17,7 @@ namespace CompositeVisitorBuilder.Composites
             }
         }
 
-        public override double Utilization => Math.Round(new Random().NextDouble(), 2);
+        public override double? Utilization { get; }
 
         public string Title { get; private set; }
 
@@ -25,6 +25,7 @@ namespace CompositeVisitorBuilder.Composites
         {
             Salary = salary;
             Title = title;
+            Utilization = Math.Round(new Random().NextDouble(), 2);
         }
 
         public override void AcceptVisitor(AbstractCompanyVisitor visitor)

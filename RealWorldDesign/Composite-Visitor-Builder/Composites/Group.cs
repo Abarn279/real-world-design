@@ -11,11 +11,11 @@ namespace CompositeVisitorBuilder.Composites
 
         public Group(string name) : base(name) { }
 
-        public override double Utilization => _children.Any()
+        public override double? Utilization => _children.Any()
             ? GetChildren()
-                .Where(x => x.Utilization > 0)
+                .Where(x => x.Utilization.HasValue)
                 .Average(x => x.Utilization)
-            : -1;
+            : null;
 
         public IEnumerable<AbstractCompanyEntity> GetChildren()
         {

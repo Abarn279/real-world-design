@@ -8,7 +8,7 @@ namespace CompositeVisitorBuilder.Composites
     {
         public string Name { get; private set; }
 
-        public abstract double Utilization { get; }
+        public abstract double? Utilization { get; }
 
         protected AbstractCompanyEntity(string name)
         {
